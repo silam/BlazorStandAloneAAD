@@ -1,6 +1,7 @@
 ﻿@page "/fetchdata"
 @using System.Net.Http.Headers
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using System.Text.Json
 @inject HttpClient Http
 @inject IAccessTokenProvider TokenProvider
 
@@ -46,7 +47,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-        await PostRequest();
+        await GetRequest();
     }
 
     public class WeatherForecast
@@ -60,21 +61,16 @@ else
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
 
-    public async Task PostRequest()
+
+    public async Task GetRequest()
     {
 
 
         var requestMessage = new HttpRequestMessage()
         {
             Method = new HttpMethod("GET"),
-            RequestUri = new Uri("https://ramdomuser.azure-api.net/activity")
-            //,
-            //Content =
-            //    JsonContent.Create(new TodoItem
-            //    {
-            //        Name = "My New Todo Item",
-            //        IsComplete = false
-            //    })
+            RequestUri = new Uri("https://ramdomuser.azure-api.net/weatherforecast/weatherforecast")
+
         };
 
         var tokenResult = await TokenProvider.RequestAccessToken();
@@ -93,12 +89,9 @@ else
             var responseStatusCode = response.StatusCode;
 
             var responseBody = await response.Content.ReadAsStringAsync();
+
+            
         }
     }
-    public class TodoItem
-    {
-        public long Id { get; set; }
-        public string? Name { get; set; }
-        public bool IsComplete { get; set; }
-    }
+    
 }
