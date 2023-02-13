@@ -46,7 +46,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
         await GetRequest();
     }
 
@@ -82,8 +81,6 @@ else
 
             requestMessage.Headers.Add("Ocp-Apim-Subscription-Key", "3baf4f82d44b47aabdccef1fd198fc27");
 
-            //requestMessage.Content.Headers.TryAddWithoutValidation(
-            //    "x-custom-header", "value");
 
             var response = await Http.SendAsync(requestMessage);
             var responseStatusCode = response.StatusCode;
