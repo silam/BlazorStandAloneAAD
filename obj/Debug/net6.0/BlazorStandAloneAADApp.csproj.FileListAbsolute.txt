@@ -850,3 +850,4 @@ C:\DEV\patrickgod\blazrowebASMStandAloneAAD\BlazorStandAloneAADApp\obj\Debug\net
 C:\DEV\patrickgod\blazrowebASMStandAloneAAD\BlazorStandAloneAADApp\obj\Debug\net6.0\build-gz\OaHVstJz.gz
 C:\DEV\patrickgod\blazrowebASMStandAloneAAD\BlazorStandAloneAADApp\obj\Debug\net6.0\build-gz\Nwy0vJag.gz
 C:\DEV\patrickgod\blazrowebASMStandAloneAAD\BlazorStandAloneAADApp\obj\Debug\net6.0\build-gz\rqBCvwJY.gz
+C:\DEV\patrickgod\blazrowebASMStandAloneAAD\BlazorStandAloneAADApp\obj\Debug\net6.0\BlazorStandAloneAADApp.MvcApplicationPartsAssemblyInfo.cs
