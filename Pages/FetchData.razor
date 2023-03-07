@@ -1,16 +1,30 @@
 ﻿@page "/fetchdata"
 @using System.Net.Http.Headers
+@using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Microsoft.AspNetCore.Components.Authorization
 @using System.Text.Json
 @inject HttpClient Http
 @inject IAccessTokenProvider TokenProvider
-
-
+@attribute [Authorize(Roles = "Files.Edit")]
 <PageTitle>Weather forecast</PageTitle>
 
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
+
+
+
+<AuthorizeView Roles="Files.Edit">
+    <Authorized>
+       @* Hello @context.User.Identity.Name!*@
+        You are Editor!
+    </Authorized>
+    <NotAuthorized>
+        User is not authenticated or Editor!
+    </NotAuthorized>
+</AuthorizeView>
+
 
 @if (forecasts == null)
 {
